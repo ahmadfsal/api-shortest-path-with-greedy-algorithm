@@ -16,7 +16,8 @@ exports.create = (req, res) => {
         lat: req.body.lat,
         lng: req.body.lng,
         address: req.body.address,
-        distance: req.body.distance
+        distance: req.body.distance,
+        short_description: req.body.short_description
     }
 
     Sanggar.create(sanggar)
@@ -27,7 +28,7 @@ exports.create = (req, res) => {
             res.status(500).send({
                 message:
                     err.message ||
-                    'Some error occurred while creating the Tutorial.'
+                    'Some error occurred while creating the sanggar.'
             })
         })
 }
@@ -41,7 +42,7 @@ exports.findAll = (req, res) => {
             res.status(500).send({
                 message:
                     err.message ||
-                    'Some error occurred while retrieving tutorials.'
+                    'Some error occurred while retrieving sanggars.'
             })
         })
 }
@@ -49,13 +50,13 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
     const id = req.params.id
 
-    Tutorial.findByPk(id)
+    Sanggar.findByPk(id)
         .then((data) => {
             res.send(data)
         })
         .catch((err) => {
             res.status(500).send({
-                message: 'Error retrieving Tutorial with id=' + id
+                message: 'Error retrieving sanggar with id=' + id
             })
         })
 }
@@ -69,7 +70,7 @@ exports.update = (req, res) => {
         .then((num) => {
             if (num == 1) {
                 res.send({
-                    message: 'Tutorial was updated successfully.'
+                    message: 'sanggar was updated successfully.'
                 })
             } else {
                 res.send({
@@ -79,7 +80,7 @@ exports.update = (req, res) => {
         })
         .catch((err) => {
             res.status(500).send({
-                message: 'Error updating Tutorial with id=' + id
+                message: 'Error updating sanggar with id=' + id
             })
         })
 }
@@ -126,17 +127,3 @@ exports.deleteAll = (req, res) => {
             })
         })
 }
-
-// exports.findAllPublished = (req, res) => {
-//     Sanggar.findAll({ where: { published: true } })
-//         .then((data) => {
-//             res.send(data)
-//         })
-//         .catch((err) => {
-//             res.status(500).send({
-//                 message:
-//                     err.message ||
-//                     'Some error occurred while retrieving Sanggar.'
-//             })
-//         })
-// }

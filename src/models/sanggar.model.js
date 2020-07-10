@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Sanggar = sequelize.define('sanggar', {
+    const Sanggar = sequelize.define('sanggars', {
         name: {
             type: Sequelize.STRING
         },
@@ -16,7 +16,10 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         },
         distance: {
-            type: Sequelize.NUMBER
+            type: Sequelize.STRING
+        },
+        short_description: {
+            type: Sequelize.STRING(255)
         }
     })
 
