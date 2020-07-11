@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // simple route
 app.get('/', (req, res) => {
     res.json({
-        message: 'Welcome to your expressJS application'
+        message: 'Server is already running...'
     })
 })
 
