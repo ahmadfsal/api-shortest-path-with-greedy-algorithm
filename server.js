@@ -33,6 +33,7 @@ app.get('/', (req, res) => {
 })
 
 require('./src/routes/sanggar.routes')(app)
+require('./src/routes/starting-point.routes')(app)
 
 // set port, listen for request
 app.listen(8080, () => {

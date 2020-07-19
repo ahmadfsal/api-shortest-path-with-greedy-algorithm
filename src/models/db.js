@@ -19,5 +19,6 @@ db.Sequileze = Sequileze
 db.sequelize = sequelize
 
 db.sanggars = require('./sanggar.model')(sequelize, Sequileze)
+db.startingPoint = require('./starting-point.model')(sequelize, Sequileze)
 
 module.exports = db
